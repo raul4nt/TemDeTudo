@@ -14,6 +14,9 @@ namespace TemDeTudo.Data
         {
         }
 
-        public DbSet<TemDeTudo.Models.Product> Product { get; set; } = default!;
+        public DbSet<Product> Product { get; set; } = default!;
+        public DbSet<Seller> Seller { get; set; } = default!;
+        public DbSet<Department> Department { get; set; } = default!;
+        public DbSet<SalesRecord> SalesRecord { get; set; } = default!;
     }
 }

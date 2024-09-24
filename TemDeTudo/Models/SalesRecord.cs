@@ -8,6 +8,8 @@ namespace TemDeTudo.Models
         public DateTime Date { get; set; }
         public Decimal Price { get; set; }
         public SaleStatus Status { get; set; }
+        public int SellerId { get; set; }
+        public Seller Seller { get; set; }
         
     }
 }
