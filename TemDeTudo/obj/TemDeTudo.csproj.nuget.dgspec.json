@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\632220012\\Source\\Repos\\TemDeTudo\\TemDeTudo\\TemDeTudo.csproj": {}
+    "C:\\Users\\632220012\\source\\repos\\TemDeTudo\\TemDeTudo\\TemDeTudo.csproj": {}
   },
   "projects": {
-    "C:\\Users\\632220012\\Source\\Repos\\TemDeTudo\\TemDeTudo\\TemDeTudo.csproj": {
+    "C:\\Users\\632220012\\source\\repos\\TemDeTudo\\TemDeTudo\\TemDeTudo.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\632220012\\Source\\Repos\\TemDeTudo\\TemDeTudo\\TemDeTudo.csproj",
+        "projectUniqueName": "C:\\Users\\632220012\\source\\repos\\TemDeTudo\\TemDeTudo\\TemDeTudo.csproj",
         "projectName": "TemDeTudo",
-        "projectPath": "C:\\Users\\632220012\\Source\\Repos\\TemDeTudo\\TemDeTudo\\TemDeTudo.csproj",
+        "projectPath": "C:\\Users\\632220012\\source\\repos\\TemDeTudo\\TemDeTudo\\TemDeTudo.csproj",
         "packagesPath": "C:\\Users\\632220012\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\632220012\\Source\\Repos\\TemDeTudo\\TemDeTudo\\obj\\",
+        "outputPath": "C:\\Users\\632220012\\source\\repos\\TemDeTudo\\TemDeTudo\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\632220012\\AppData\\Roaming\\NuGet\\NuGet.Config",

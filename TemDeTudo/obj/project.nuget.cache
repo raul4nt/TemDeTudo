@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ftbaavW9qrVC7ceyHq0bWFhSYKUuCk2EvSHWIOg/ut/ec0exwCu1qrJB4MZl8Rd8xF3afxFz09mCYbjnbFy5Nw==",
+  "dgSpecHash": "t3wa5PaFwIEIV6iQj58xF4DpO188yV2HFd4mZlY5F5ikV/t5LfTaspzudswpqgvavedk7/RHW42VFyOM/DizIA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\632220012\\Source\\Repos\\TemDeTudo\\TemDeTudo\\TemDeTudo.csproj",
+  "projectFilePath": "C:\\Users\\632220012\\source\\repos\\TemDeTudo\\TemDeTudo\\TemDeTudo.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\632220012\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
     "C:\\Users\\632220012\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
