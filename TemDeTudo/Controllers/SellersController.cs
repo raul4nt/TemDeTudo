@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using TemDeTudo.Data;
 using TemDeTudo.Models;
+using TemDeTudo.Models.ViewModels;
 
 namespace TemDeTudo.Controllers
 {
@@ -23,7 +24,13 @@ namespace TemDeTudo.Controllers
 
         public IActionResult Create()
         {
-            return View();
+            //Instanciar um SellerFormViewModel
+            //Essa instancia vai ter 2 propriedades
+            //Um vendedor e uma lista de departamentos
+            SellerFormViewModel viewModel = new SellerFormViewModel();
+            //Carregando os departamentos do banco de dados
+            viewModel.DepartmentList = _context.Department.ToList();
+            return View(viewModel);
         }
 
         [HttpPost]
@@ -36,8 +43,8 @@ namespace TemDeTudo.Controllers
                return NotFound();
             }
 
-            seller.Department = _context.Department.FirstOrDefault();
-            seller.DepartmentId = seller.Department.Id;
+            //seller.Department = _context.Department.FirstOrDefault();
+            //seller.DepartmentId = seller.Department.Id;
 
             //Adicionar o objeto vendedor ao banco
             _context.Add(seller);
