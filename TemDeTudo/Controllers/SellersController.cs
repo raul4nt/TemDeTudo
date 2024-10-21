@@ -53,5 +53,60 @@ namespace TemDeTudo.Controllers
             
             return RedirectToAction("Index");
         }
+
+        public IActionResult Details(int? id)
+        {
+            // Verifica se foi passado um id como parametro 
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            Seller seller = _context.Seller.Include("Department").FirstOrDefault(x => x.Id == id);
+
+            // Se nao localizou um vendedor com este ID, vai para página de erro
+            if (seller == null)
+            {
+                return NotFound();
+            }
+
+            return View(seller);
+
+        }
+
+        public IActionResult Delete(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            Seller seller = _context.Seller
+                .Include("Department")
+                .FirstOrDefault(x => x.Id == id);
+
+            if (seller == null)
+            {
+                return NotFound();
+            }
+
+            return View(seller);
+        }
+
+        [HttpPost]
+        public IActionResult Delete(int id)
+        {
+            Seller seller = _context.Seller
+                .FirstOrDefault(x => x.Id == id);
+
+            if (seller == null)
+            {
+                return NotFound();
+            }
+
+            _context.Remove(seller);
+            _context.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }
