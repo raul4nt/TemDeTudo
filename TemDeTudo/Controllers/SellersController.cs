@@ -108,5 +108,37 @@ namespace TemDeTudo.Controllers
             _context.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public IActionResult Edit(int id)
+        {
+            var seller = _context.Seller.First(x => x.Id ==id);
+
+            if (seller == null)
+            {
+                return NotFound();
+            }
+
+            // Cria uma lista de departamentos
+            List<Department> departments = _context.Department.ToList();
+
+            // Cria uma instância do viewmodel 
+            SellerFormViewModel viewModel = new SellerFormViewModel();
+            viewModel.Seller = seller;
+            viewModel.DepartmentList = departments;
+            return View(viewModel);
+
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Seller seller)
+        {
+            //_context.Seller.Update(seller);
+            _context.Update(seller);
+            _context.SaveChanges();
+            
+            return RedirectToAction("Index");
+
+        }
+
     }
 }
