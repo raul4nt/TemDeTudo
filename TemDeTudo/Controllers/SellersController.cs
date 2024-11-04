@@ -19,7 +19,17 @@ namespace TemDeTudo.Controllers
         {
             //List<Seller> sellers = _context.Seller.ToList();
             var sellers = _context.Seller.Include("Department").ToList();
-            return View(sellers);
+
+            // Filtra os vendedores que ganham menos de 10k
+            var trainees = sellers.Where(s => s.Salary <=10000);
+
+            // Filtra a lista e ordena em ordem CRESCENTE por nome e depois por salario
+            var SellerAscNameSalary = sellers.OrderBy(s => s.Name).ThenBy(s => s.Salary);
+            // OrderBy ordena em ordem crescente(OrderByDescending é pra decrescente dai
+            // ThenBy seria "Entao...", ou seja, neste caso, ordena por nome, entao, ordena por salario
+
+
+            return View(SellerAscNameSalary);
         }
 
         public IActionResult Create()
@@ -29,7 +39,7 @@ namespace TemDeTudo.Controllers
             //Um vendedor e uma lista de departamentos
             SellerFormViewModel viewModel = new SellerFormViewModel();
             //Carregando os departamentos do banco de dados
-            viewModel.DepartmentList = _context.Department.ToList();
+            viewModel.Departments = _context.Department.ToList();
             return View(viewModel);
         }
 
@@ -124,7 +134,7 @@ namespace TemDeTudo.Controllers
             // Cria uma instância do viewmodel 
             SellerFormViewModel viewModel = new SellerFormViewModel();
             viewModel.Seller = seller;
-            viewModel.DepartmentList = departments;
+            viewModel.Departments = departments;
             return View(viewModel);
 
         }
@@ -138,6 +148,24 @@ namespace TemDeTudo.Controllers
             
             return RedirectToAction("Index");
 
+        }
+
+        public IActionResult Report()
+        {
+            // Popular a lista de objetos vendedores, trazendo as informações
+            // do departamento de cada vendedor 
+            // List<Seller> sellers
+            var sellers = _context.Seller.Include("Department").ToList();
+            ViewData["TotalFolhaPagamento"] = sellers.Sum(s => s.Salary);
+            ViewData["Maior"] = sellers.Max(s => s.Salary);
+            ViewData["Menor"] = sellers.Min(s => s.Salary);
+            ViewData["Media"] = sellers.Average(s => s.Salary).ToString("F2");
+            // f2 = duas casas decimais. usei o tostring pra isso funcinar direitinho.
+            // poderia usar o math round tb
+            ViewData["Ricos"] = sellers.Count(s => s.Salary > 30000);
+
+
+            return View();
         }
 
     }
