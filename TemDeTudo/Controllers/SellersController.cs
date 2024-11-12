@@ -163,6 +163,10 @@ namespace TemDeTudo.Controllers
             // f2 = duas casas decimais. usei o tostring pra isso funcinar direitinho.
             // poderia usar o math round tb
             ViewData["Ricos"] = sellers.Count(s => s.Salary > 30000);
+            ViewData["info"] = _context.Seller
+            .FromSqlRaw("SELECT Name FROM Seller WHERE id = 1")
+            .Select(s => new { s.Name }) // Seleciona apenas o campo 'Name'
+            .ToList(); ;
 
 
             return View();

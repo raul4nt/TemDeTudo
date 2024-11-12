@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Linq;
 
 namespace TemDeTudo.Models
 {
@@ -23,6 +24,11 @@ namespace TemDeTudo.Models
         public int DepartmentId { get; set; }
         public Department Department { get; set; }
         public List<SalesRecord> Sales { get; set; } = new List<SalesRecord>();
+
+        public Decimal TotalSales (DateTime initialDate, DateTime finalDate)
+        {
+            return Sales.Where(sr => sr.Date >= initialDate && sr.Date <= finalDate).Sum(sr => sr.Price);
+        }
 
 
     }

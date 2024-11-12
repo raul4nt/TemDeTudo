@@ -20,3 +20,10 @@
 
 <h3>Quantidade De Salários Acima de R$ 30.000,00 </h3>
 <p>@ViewData["Ricos"] pessoa(s)</p>
+
+
+
+@foreach (var item in ViewData["info"] as IEnumerable<dynamic>)
+{
+    <p>@item.Name</p>  <!-- Aqui você está acessando a propriedade 'Name' do objeto anônimo -->
+}
